@@ -15,6 +15,6 @@ class _BerandaScreenState extends State<BerandaScreen> {
       appBar: AppBar(
 
       ),
-    )
+    );
   }
 }
