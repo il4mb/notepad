@@ -23,6 +23,29 @@ class _BerandaScreenState extends State<BerandaScreen> {
           color: Colors.black,
         ),
         backgroundColor: Colors.deepOrange,
+        elevation: 1,
+      ),
+      body: SafeArea(
+        child: Form(
+          child: ListView(
+            children: [
+              TextField(
+                style: TextStyle(color: Colors.black26),
+                decoration: InputDecoration(
+                  filled: true,
+                  fillColor: Colors.white,
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(8.0),
+                    borderSide: BorderSide.none
+                  ),
+                  hintText: "Search..",
+                  prefixIcon: Icon(Icons.search),
+                  prefixIconColor: Colors.deepOrange,
+                ),
+              )
+            ],
+          ),
+        ),
       ),
     );
   }
