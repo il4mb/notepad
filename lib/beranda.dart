@@ -13,8 +13,17 @@ class _BerandaScreenState extends State<BerandaScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-
+        title: const Text(
+          'NOTEAPP',
+          style: TextStyle(
+            color: Colors.black, fontSize: 16, fontWeight: FontWeight.w600
+          ),
+        ),
+        leading: const BackButton(
+          color: Colors.black,
+        ),
+        backgroundColor: Colors.deepOrange,
       ),
-    )
+    );
   }
 }
