@@ -3,22 +3,24 @@ import 'dart:ffi';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import '/main.dart';
+import '/object/kategori.dart';
 
 void main() {
-  runApp(const Kategori());
+  runApp(const KategoriFrame());
 }
 
-class Kategori extends StatelessWidget {
-  const Kategori({super.key});
+class KategoriFrame extends StatelessWidget {
+  const KategoriFrame({super.key});
 
   @override
   Widget build(BuildContext context) {
 
-    List<Widget> ss = [
-      new Text("RADIO"),
-      Text("TV"),
-      TextField()
-      ];
+    List<Widget> ListKat = <Widget>[];
+    for(var val in Kategori.defaultVal) {
+
+      ListKat.add(Text(val.value));
+    }
+
     return MaterialApp(
       title: MyApp.APPNAME,
       home: Scaffold(
@@ -27,7 +29,7 @@ class Kategori extends StatelessWidget {
         ),
         body: Center(
           child: ListView(
-            children: ss,
+            children: ListKat,
           ),
         ),
       ),
