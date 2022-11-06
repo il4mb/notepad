@@ -1,13 +1,18 @@
 import 'dart:ui';
 
+import 'package:floor/floor.dart';
 import 'package:flutter/material.dart';
+import 'package:notepad/database/DataBase.dart';
 import 'package:notepad/kategori.dart';
 
+@Entity(tableName: "kategori")
 class Kategori {
 
-  static List<Kategori> defaultVal = [Kategori(1, "Daily"), Kategori(2, "Tugas"), Kategori(3, "Job"), Kategori(4, "Rutinitas")];
+  //DataBase dataBase = new DataBase;
 
-  var id;
-  var value;
-  Kategori(int this.id, String this.value);
+  @PrimaryKey(autoGenerate: true)
+  final int id;
+
+  final String name;
+  Kategori(this.id, this.name);
 }

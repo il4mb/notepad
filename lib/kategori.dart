@@ -1,33 +1,43 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
+import 'package:notepad/database/DataBase.dart';
+import 'package:notepad/database/kategoriDAO.dart';
 import '/main.dart';
 import '/object/kategori.dart';
 
-void main() {
-  runApp(const KategoriFrame());
+Future<void> main() async {
+
+  final database =
+      await $FloorDataBase.databaseBuilder('_database.db').build();
+  final dao = database.kategoriDAO;
+  runApp(KategoriFrame(dao));
+
 }
 
 class KategoriFrame extends StatelessWidget {
-  const KategoriFrame({super.key});
+  //const KategoriFrame({super.key});
+
+  final KategoriDAO? Dao;
+  const KategoriFrame(KategoriDAO dao, {this.Dao, super.key});
 
   @override
   Widget build(BuildContext context) {
 
-    var len = Kategori.defaultVal.length;
+    var kategori = [Kategori(1, "name")];
+    var len = kategori.length;
 
     return MaterialApp(
       title: MyApp.APPNAME,
+
       home: Scaffold(
           appBar: AppBar(
-            title: const Text("Pilih kategori"),
+            title: Text(""),
           ),
           body: Column(
             children: [
 
-              Padding(
+              const Padding (
                 padding: EdgeInsets.all(15), //apply padding to all four sides
-                child: Text("Kamu punya $len kategori"),
+                child: Text(""),
               ),
 
               Expanded(
@@ -45,7 +55,7 @@ class KategoriFrame extends StatelessWidget {
                                 color: Colors.blueGrey,
                                 size: 75.0,
                               ),
-                              Text(Kategori.defaultVal[index].value,
+                              Text(kategori[index].name,
                                   style: const TextStyle(
                                       color: Colors.blueGrey,
                                       fontSize: 18.0,
