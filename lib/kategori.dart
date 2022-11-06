@@ -6,8 +6,7 @@ import '/object/kategori.dart';
 
 Future<void> main() async {
 
-  final database =
-      await $FloorDataBase.databaseBuilder('_database.db').build();
+  final database = DataBase.build();
   final dao = database.kategoriDAO;
   runApp(KategoriFrame(dao));
 

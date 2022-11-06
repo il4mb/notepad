@@ -14,4 +14,8 @@ part 'DataBase.g.dart';
 @Database(version: 1, entities: [Kategori])
 abstract class DataBase extends FloorDatabase {
   KategoriDAO get kategoriDAO;
+
+  static build() async {
+    return await $FloorDataBase.databaseBuilder('_database.db').build();
+  }
 }
